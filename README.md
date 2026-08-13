@@ -2,8 +2,8 @@
 This is my first data pipeline I have worked on whilst uploading to GitHub. 
 
 weathercallergithub.py takes weather information from openweathermap.org through their free api then selects a few of the returned rows.
-The program parses the file as a python dictionary, making it easier to work with. 
-It then checks to see if there is a file created, making one if necessary, and then appends the dictionary to the csv file. 
+The program parses the file as a python dictionary, for easier manipulation. 
+It creates a new daily file if necessary, then appends the weather observations to the file. 
 
 The secondary program named s3upload.py uses the boto3 library to upload the csv file at the end of the day to a s3 bucket (in progress)
 

@@ -10,4 +10,4 @@ The secondary program named s3upload.py uses the boto3 library to upload the csv
 The s3 bucket contains a directory of the files ordered by date. (in progress)
 
 Databricks receives the raw csv files from the s3 bucket and then runs the data through a cleaning process, bronze to silver.
-From there, it is ported into a dashboard showing weather trends across the day, week, month and beyond. (in progress)
+From there, it is ported into a dashboard showing weather trends across the day, week, month and beyond. 

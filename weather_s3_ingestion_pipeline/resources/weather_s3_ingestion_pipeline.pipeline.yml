@@ -1,0 +1,14 @@
+resources:
+  pipelines:
+    weather_s3_ingestion_pipeline:
+      name: Weather S3 Ingestion Pipeline
+      libraries:
+        - glob:
+            include: ../src/weather_s3_ingestion_pipeline/transformations/**
+      catalog: weatherpipeline
+      channel: CURRENT
+      continuous: false
+      photon: true
+      root_path: ../src/weather_s3_ingestion_pipeline
+      schema: weathercleaning
+      serverless: true

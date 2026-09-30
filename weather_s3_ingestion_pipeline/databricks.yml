@@ -1,0 +1,27 @@
+# Declarative Automation Bundle configuration, more info here: https://docs.databricks.com/en/dev-tools/bundles/settings.html
+bundle:
+  name: "weather_s3_ingestion_pipeline"
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+targets:
+  # The 'dev' target, for development purposes. This target is the default.
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-36fc28b9-de03.cloud.databricks.com
+
+  # The 'prod' target, used for production deployment.
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-36fc28b9-de03.cloud.databricks.com
+      # We always use /Users/miles.giftunique@gmail.com for all resources to make sure we only have a single copy.
+      root_path: /Users/miles.giftunique@gmail.com/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      # This runs as miles.giftunique@gmail.com in production. We could also use a service principal here,
+      # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
+      user_name: miles.giftunique@gmail.com
